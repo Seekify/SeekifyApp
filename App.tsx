@@ -1,19 +1,20 @@
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
-// import BottomTabNavigation from './src/navigation/BottomTabNavigation';
+import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 import { Amplify } from 'aws-amplify';
 import amplifyconfig from './src/amplifyconfiguration.json';
-// import { AuthProvider } from './src/context/AuthContext';
+import { UserContextProvider } from './src/Context/UserContext';
+import BottomTabNavigation from './src/Navigation/BottomTabNavigation';
+
 Amplify.configure(amplifyconfig);
 
 export default function App() {
   return (
-    // <AuthProvider>
+    <UserContextProvider>
       <SafeAreaView style={styles.container}>
-        {/* <BottomTabNavigation /> */}
-        <Text>Home Screen</Text>
+        <BottomTabNavigation />
       </SafeAreaView>
-    // </AuthProvider>
+    </UserContextProvider>
   );
 }
 
